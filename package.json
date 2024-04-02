@@ -1,0 +1,31 @@
+{
+  "name": "wunderground-uploader",
+  "version": "1.0.0",
+  "description": "Tool for fully automatically collecting and uploading weather data as owner of a PWS to the wunderground weather network",
+  "main": "main.js",
+  "type": "commonjs",
+  "scripts": {
+    "test": "node uploader.js",
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moonraker46/wunderground-uploader.git"
+  },
+  "author": "Ulrich Waldmann",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/moonraker46/wunderground-uploader/issues"
+  },
+  "homepage": "https://github.com/moonraker46/wunderground-uploader#readme",
+  "dependencies": {
+    "@hapi/hapi": "^21.3.7",
+    "@hapi/inert": "^7.1.0",
+    "@tsmx/weather-tools": "^1.1.1",
+    "axios": "^1.6.8",
+    "dotenv": "^16.4.5",
+    "node-cron": "^3.0.3",
+    "ntp-client": "^0.5.3",
+    "wunderground-pws": "^1.3.2"
+  }
+}
