@@ -42,7 +42,7 @@ const getUtcTime = async () => {
     return formattedTime;
   } catch (error) {
     console.error("Error fetching or formatting NTP time:", error);
-    return null;
+    return 'now';
   }
 }
 
