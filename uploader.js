@@ -12,6 +12,7 @@ const runPwsUpload = () => {
   collector.getMultipleItemStates()
     .then((res) => {
       wd.tempf = wt.celsiusToFahrenheit(res.OU_Dachterasse_Wetterstation_Temperatur).toFixed(5)
+      wd.feelslikef = wt.celsiusToFahrenheit(res.OU_Dachterasse_Wetterstation_Gefuehlte_Temperatur).toFixed(5)
       wd.dewptf = wt.celsiusToFahrenheit(wt.dewPoint(Number(res.OU_Dachterasse_Wetterstation_Temperatur), Number(res.OU_Dachterasse_Wetterstation_Relative_Luftfeuchte_Proxy)))
       wd.humidity = Number(res.OU_Dachterasse_Wetterstation_Relative_Luftfeuchte_Proxy).toFixed(5)
       wd.winddir = Number(res.OU_Dachterasse_Wetterstation_Windrichtung).toFixed(5);
@@ -27,12 +28,13 @@ const runPwsUpload = () => {
     })
     .then(() => {
       collector.getItemPersistence('OU_Dachterasse_Wetterstation_Windgeschwindigkeit')
-        .then((res => { wd.windgustmph = wt.kmhToMph(helper.getMaxState(res.OU_Dachterasse_Wetterstation_Windgeschwindigkeit)).toFixed(5) }))
+        .then((res => { wd.windgustmph = helper.wind_ms_to_mph(helper.getMaxState(res.OU_Dachterasse_Wetterstation_Windgeschwindigkeit)).toFixed(5) }))
         .then(() => {
           pws.setObservations({
             action: wd.action,
             dateutc: wd.dateutc,
             tempf: wd.tempf,
+            feelslikef: wd.feelslikef,
             dewptf: wd.dewptf,
             humidity: wd.humidity,
             windgustmph: wd.windgustmph,

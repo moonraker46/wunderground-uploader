@@ -9,6 +9,7 @@ class WeatherData {
             dateutc: null,
             tempf: null,
             dewptf: null,
+            feelslikef: null,
             humidity: null,
             windgustmph: null,
             winddir: null,
@@ -29,6 +30,11 @@ class WeatherData {
     get tempf() {
         return this._data.tempf;
     }
+
+    get feelslikef() {
+        return this._data.feelslikef;
+    }
+
 
     get dewptf() {
       return this._data.dewptf;  
@@ -78,6 +84,10 @@ class WeatherData {
 
     set tempf(value) {
         this._data.tempf = value;
+    }
+
+    set feelslikef(value) {
+        this._data.feelslikef = value;
     }
 
     set dewptf(value) {

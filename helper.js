@@ -49,16 +49,16 @@ const getUtcTime = async () => {
 
 const getMaxState = (jsdata) => {
   // Initialize maxState with negative infinity
-  let maxState = -Infinity;
-
-  let jsObject = JSON.parse(JSON.stringify(jsdata));
-
-  for (let [key, value] of Object.entries(jsObject)) {
-    const stateNumber = parseFloat(value);
+  let maxState = 0;
+  let jsObject = JSON.parse(jsdata);
+  
+  for (let [key, value] of Object.entries(jsObject.data)) {
+    const stateNumber = parseFloat(value.state);
+  
     if (stateNumber > maxState) {
       maxState = stateNumber;
     }
-  }
+  } 
   return maxState
 }
 
