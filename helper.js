@@ -64,7 +64,7 @@ const getMaxState = (jsdata) => {
 
 
 const hpa_to_inches_ofm = (pressure_in_hpa) => pressure_in_hpa * 0.02953
-const wind_ms_to_mph = (windms) => (windms * 0.2777778) * 0.621371
+const wind_ms_to_mph = (windms) => windms * 2.237;//(windms * 0.2777778) * 0.621371
 
 exports.hpa_to_inches_ofm = hpa_to_inches_ofm;
 exports.wind_ms_to_mph = wind_ms_to_mph;
